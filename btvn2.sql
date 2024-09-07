@@ -26,7 +26,9 @@ limit 3;
 
 select student_name, student_point
 from student
-order by student_point desc
-limit 1;
+where student_point = (
+select max(student_point)
+from student);
+;
 
 

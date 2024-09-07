@@ -89,3 +89,32 @@ from student s
 inner join mark m on s.StudentID = m.StudentID
 inner join subject su on m.SubID = su.SubID
 order by m.mark desc, s.StudentName asc;
+
+-- Hiển thị tất cả các thông tin môn học (bảng subject) có credit lớn nhất.
+set @max = (
+select max(credit)
+from subject 
+);
+select subname, credit
+from subject
+where credit = @max;
+
+-- Hiển thị các thông tin môn học có điểm thi lớn nhất.
+set @max1 = (
+select max(mark)
+from mark 
+);
+select subname, max(mark) as diem_cao_nhat
+from subject s
+join mark m on s.SubID = m.SubID
+group by subname
+having max(mark) = @max1;
+
+-- Hiển thị các thông tin sinh viên và điểm trung bình của mỗi sinh viên, 
+-- xếp hạng theo thứ tự điểm giảm dần
+select s.StudentID, s.StudentName, s.Address, s.Phone, s.Status, avg(mark) as diem_trung_binh
+from student s
+left join mark m on s.StudentID = m.StudentID
+group by s.StudentID, s.StudentName, s.Address, s.Phone, s.Status
+order by diem_trung_binh desc;
+
