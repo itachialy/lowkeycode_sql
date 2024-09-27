@@ -1,0 +1,51 @@
+
+body {
+    /*background-image: url('https://images.pexels.com/photos/28494632/pexels-photo-28494632/free-photo-of-futuristic-neon-abstract-geometric-design.jpeg'); !* Đường dẫn đến hình ảnh background mới *!*/
+    background-image: url('https://images.unsplash.com/photo-1612386649465-5afc2ef04bc1?q=80&w=1792&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Đường dẫn đến hình ảnh background mới */
+    background-size: cover; /* Để hình ảnh phủ toàn bộ */
+    background-position: center; /* Đặt hình ảnh ở giữa */
+    height: 100vh; /* Đảm bảo chiều cao 100% của viewport */
+}
+h1 {
+    color: #301ebe;
+    font-family: "Monotype Corsiva";
+    font-size: 70px;
+    white-space: nowrap; /* Ngăn không cho xuống dòng */
+    font-weight: bold; /* Đặt chữ in đậm */
+    text-shadow: 2px 2px 50px rgba(0, 159, 180, 0.8); /* Thêm hiệu ứng đổ bóng */
+}
+.form-outline {
+    position: relative;
+}
+
+.form-outline input {
+    border: none; /* Loại bỏ viền */
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5); /* Viền dưới */
+    outline: none; /* Xóa đường viền khi focus */
+    padding: 10px 0; /* Padding cho trường nhập liệu */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng chuyển tiếp */
+}
+
+.form-outline input:focus {
+    border-color: #301ebe; /* Màu viền dưới khi focus */
+    box-shadow: none; /* Tắt bóng khi focus */
+}
+
+.form-outline label {
+    position: absolute;
+    left: 10px; /* Khoảng cách bên trái */
+    top: 10px; /* Khoảng cách phía trên */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển tiếp cho nhãn */
+    color: rgba(0, 0, 0, 0.5); /* Màu nhãn khi chưa nhập */
+    font-size: 16px; /* Kích thước chữ ban đầu */
+}
+
+.form-outline input:focus + label,
+.form-outline input:not(:placeholder-shown) + label {
+    top: -15px; /* Đưa nhãn lên trên */
+    left: 5px; /* Đưa nhãn vào bên trái một chút */
+    font-size: 12px; /* Giảm kích thước chữ của nhãn */
+    color: #301ebe; /* Thay đổi màu chữ của nhãn khi focus */
+    font-weight: bold; /* Đặt nhãn in đậm */
+    transform: scale(1.1); /* Tăng nhẹ kích thước nhãn khi focus */
+}
